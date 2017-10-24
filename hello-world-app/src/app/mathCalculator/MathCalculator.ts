@@ -16,3 +16,4 @@ export class MathCalculator{
 		this.result = this.number1 / this.number2;
 	}
 }
+
