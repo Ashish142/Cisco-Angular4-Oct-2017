@@ -18,6 +18,5 @@ export class MathResultComponent implements OnChanges{
 			negative : this.data < 0
 		};
 	}
-	
-	
+
 }

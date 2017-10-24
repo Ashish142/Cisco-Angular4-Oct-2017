@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
 import { MathCalculatorComponent } from './mathCalculator/MathCalculator.component'
 import { MathResultComponent } from './mathCalculator/mathResult/MathResult.component';
+import { MathCalculator2Component } from './mathCalculator/MathCalculator2.component'
+import { ListerComponent } from './lister/Lister.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GreeterComponent,
     MathCalculatorComponent,
-    MathResultComponent
+    MathCalculator2Component,
+    MathResultComponent,
+    ListerComponent
   ],
   imports: [
     BrowserModule, FormsModule
