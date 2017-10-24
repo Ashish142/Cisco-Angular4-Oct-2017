@@ -17,7 +17,8 @@
 	<section class="list">
 		<ol>
 			<li *ngFor="let bug of bugs">
-				<span class="bugname" [ngClass]="{closed : bug.isClosed}" (click)="toggle(bug)">{{bug.name}}</span>
+				<span class="bugname" [ngClass]="{closed : bug.isClosed}" (click)="toggle(bug)">	{{bug.name | trimText:40}}
+				</span>
 				<div class="datetime">[Created At]</div>
 			</li>
 			

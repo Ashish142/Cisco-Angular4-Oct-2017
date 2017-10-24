@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Bug } from './models/Bug';
-import { BugService } from './services/BugService';
+import { BugOperationsService } from './services/BugOperations.service';
 
 @Component({
 	selector : 'bug-tracker',
@@ -11,18 +11,18 @@ export class BugTrackerComponent{
 
 	
 
-	constructor(private bugService : BugService){
+	constructor(private bugOperations : BugOperationsService){
 
 	}
 
 
 	add(bugName : string){
-		let newBug : Bug = this.bugService.createNew(bugName);
+		let newBug : Bug = this.bugOperations.createNew(bugName);
 		this.bugs.push(newBug);
 	}
 
 	toggle(bug : Bug){
-		this.bugService.toggle(bug);
+		this.bugOperations.toggle(bug);
 	}
 
 	removeClosed(){

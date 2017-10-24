@@ -1,6 +1,6 @@
 import { Bug } from '../models/Bug';
 
-export class BugService{
+export class BugOperationsService{
 	createNew(bugName : string) : Bug{
 		let newBug : Bug = {
 			name : bugName,
