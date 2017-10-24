@@ -7,11 +7,11 @@
 </style>
 <h1>Math Calculator</h1>
 <hr>
-<input type="number">
-<input type="number">
+<input type="number" [(ngModel)]="calculator.number1">
+<input type="number" [(ngModel)]="calculator.number2">
 <br>
-<input type="button" value="Add">
-<input type="button" value="Subtract">
-<input type="button" value="Multiply">
-<input type="button" value="Divide">
-<div class="result">[Result]</div>
+<input type="button" value="Add"  (click)="calculator.add()">
+<input type="button" value="Subtract" (click)="calculator.subtract()">
+<input type="button" value="Multiply" (click)="calculator.multiply()">
+<input type="button" value="Divide" (click)="calculator.divide()">
+<div class="result">{{calculator.result}}</div>

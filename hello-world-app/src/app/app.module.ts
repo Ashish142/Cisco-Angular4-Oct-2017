@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
-
+import { MathCalculatorComponent } from './mathCalculator/MathCalculator.component'
 @NgModule({
   declarations: [
     AppComponent,
-    GreeterComponent
+    GreeterComponent,
+    MathCalculatorComponent
   ],
   imports: [
     BrowserModule, FormsModule
