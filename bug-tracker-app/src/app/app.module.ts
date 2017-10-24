@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { BugTrackerComponent } from './bugTracker/BugTracker.component';
 import { BugStatsComponent } from './bugTracker/bugStats/BugStats.component';
 
+import { BugService } from './bugTracker/services/BugService';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,7 @@ import { BugStatsComponent } from './bugTracker/bugStats/BugStats.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [BugService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Bug } from './models/Bug';
+import { BugService } from './services/BugService';
 
 @Component({
 	selector : 'bug-tracker',
@@ -8,16 +9,20 @@ import { Bug } from './models/Bug';
 export class BugTrackerComponent{
 	bugs : Bug[] = [];
 
+	
+
+	constructor(private bugService : BugService){
+
+	}
+
+
 	add(bugName : string){
-		let newBug : Bug = {
-			name : bugName,
-			isClosed : false
-		};
+		let newBug : Bug = this.bugService.createNew(bugName);
 		this.bugs.push(newBug);
 	}
 
 	toggle(bug : Bug){
-		bug.isClosed = !bug.isClosed;
+		this.bugService.toggle(bug);
 	}
 
 	removeClosed(){
@@ -29,6 +34,6 @@ export class BugTrackerComponent{
 			return !bug.isClosed;
 		});*/
 		this.bugs = this.bugs.filter(bug => !bug.isClosed);
-		
+
 	}
 }
