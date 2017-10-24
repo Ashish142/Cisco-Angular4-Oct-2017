@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Bug } from '../models/Bug';
 
 @Component({
 	selector : 'bug-stats',
@@ -13,5 +14,5 @@ import { Component, Input } from '@angular/core';
 export class BugStatsComponent{
 
 	@Input()
-	list : string[] = [];
+	list : Bug[] = [];
 }
