@@ -1,28 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Bug } from './models/Bug';
-import { BugOperationsService } from './services/BugOperations.service';
+import { BugStorageService } from './services/BugStorage.Service';
 
 @Component({
 	selector : 'bug-tracker',
 	templateUrl : 'BugTracker.component.html'
 })
-export class BugTrackerComponent{
+export class BugTrackerComponent implements OnInit{
 	bugs : Bug[] = [];
 
-	
-
-	constructor(private bugOperations : BugOperationsService){
+	constructor(private bugStorage : BugStorageService){
 
 	}
 
+	ngOnInit(){
+		this.bugs = this.bugStorage.getAll();
+	}
 
 	add(bugName : string){
-		let newBug : Bug = this.bugOperations.createNew(bugName);
+		let newBug : Bug = this.bugStorage.addNew(bugName);
 		this.bugs.push(newBug);
 	}
 
 	toggle(bug : Bug){
-		this.bugOperations.toggle(bug);
+		this.bugStorage.toggle(bug);
 	}
 
 	removeClosed(){
