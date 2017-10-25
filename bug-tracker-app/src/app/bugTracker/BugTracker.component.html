@@ -14,12 +14,7 @@
 	<bug-edit (onNewBug)="newBugAdded($event)"></bug-edit>
 	<section class="list">
 		<ol>
-			<li *ngFor="let bug of ( bugs | sort:sortBugBy:sortBugOrder )">
-				<span class="bugname" [ngClass]="{closed : bug.isClosed}" (click)="toggle(bug)">	{{bug.name | trimText:40}}
-				</span>
-				<div class="datetime">[{{bug.createdAt | elapsed}}]</div>
-			</li>
-			
+			<bug-item *ngFor="let bug of ( bugs | sort:sortBugBy:sortBugOrder )" [bug]="bug" (onToggle)="bugToggled($event)"></bug-item>
 		</ol>
 		<input type="button" value="Remove Closed" (click)="removeClosed()">
 	</section>
