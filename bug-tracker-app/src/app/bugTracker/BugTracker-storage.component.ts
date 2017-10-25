@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Bug } from './models/Bug';
 import { BugStorageService } from './services/BugStorage.Service';
-import { Http } from '@angular/http';
-
-import { BugServerService } from './services/BugServer.service';
 
 
 @Component({
@@ -13,14 +10,12 @@ import { BugServerService } from './services/BugServer.service';
 export class BugTrackerComponent implements OnInit{
 	bugs : Bug[] = [];
 
-	constructor(private bugServer : BugServerService, private bugStorage : BugStorageService, private http : Http){
+	constructor(private bugStorage : BugStorageService){
 
 	}
 
 	ngOnInit(){
-		this.bugServer
-			.getAll()
-			.subscribe(data => this.bugs = data);
+		this.bugs = this.bugStorage.getAll();
 	}
 
 	newBugAdded(bug : Bug){

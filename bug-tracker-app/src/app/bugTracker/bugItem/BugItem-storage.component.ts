@@ -1,8 +1,7 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 import { Bug } from '../models/Bug';
-import { BugServerService } from '../services/BugServer.service';
-
+import { BugStorageService } from '../services/BugStorage.Service';
 
 @Component({
 	selector : 'bug-item',
@@ -23,13 +22,11 @@ export class BugItemComponent{
 	@Input()
 	bug : Bug;
 
-	constructor(private bugServer : BugServerService){
+	constructor(private bugStorage : BugStorageService){
 
 	}
 	toggle(bugToToggle : Bug) {
-		this.bugServer
-			.toggle(bugToToggle)
-			.subscribe(toggledBug => this.onToggle.emit(toggledBug));
-		
+		let toggledBug : Bug = this.bugStorage.toggle(bugToToggle);
+		this.onToggle.emit(toggledBug);
 	}
 }
