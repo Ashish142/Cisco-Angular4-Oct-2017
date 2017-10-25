@@ -5,12 +5,13 @@ export class BugOperationsService{
 		let newBug : Bug = {
 			id : id,
 			name : bugName,
-			isClosed : false
+			isClosed : false,
+			createdAt : new Date()
 		};
 		return newBug;
 	}
 
-	toggle(bug : Bug) : void {
-		bug.isClosed = !bug.isClosed;
+	toggle(bug : Bug) : Bug {
+		return { ...bug, isClosed : !bug.isClosed};
 	}
 }

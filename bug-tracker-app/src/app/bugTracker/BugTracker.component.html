@@ -2,24 +2,26 @@
 	<bug-stats [list]="bugs"></bug-stats>
 	<section class="sort">
 		<label for="">Order By :</label>
-		<select name="" id="">
-			<option value=""></option>
-			<option value=""></option>
+		<select [(ngModel)]="sortBugBy">
+			<option value="id">[Default]</option>
+			<option value="name">Name</option>
+			<option value="isClosed">Status</option>
+			<option value="createdAt">Created At</option>
 		</select>
 		<label for="">Descending ? :</label>
-		<input type="checkbox" name="" id="">
+		<input type="checkbox" [(ngModel)]="sortBugOrder">
 	</section>
 	<section class="edit">
 		<label for="">Bug Name :</label>
-		<input type="text" #txtBugName>
-		<input type="button" value="Create New" (click)="add(txtBugName.value)">
+		<input type="text" [(ngModel)]="newBugName">
+		<input type="button" value="Create New" (click)="add(newBugName)">
 	</section>
 	<section class="list">
 		<ol>
-			<li *ngFor="let bug of bugs">
+			<li *ngFor="let bug of ( bugs | sort:sortBugBy:sortBugOrder )">
 				<span class="bugname" [ngClass]="{closed : bug.isClosed}" (click)="toggle(bug)">	{{bug.name | trimText:40}}
 				</span>
-				<div class="datetime">[Created At]</div>
+				<div class="datetime">[{{bug.createdAt}}]</div>
 			</li>
 			
 		</ol>
