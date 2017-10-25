@@ -3,7 +3,7 @@
     {
       "id": 2,
       "name": "User actions not recognized",
-      "isClosed": false,
+      "isClosed": true,
       "createdAt": "Sat Sep 16 2017 10:03:57 GMT+0530 (IST)"
     },
     {
@@ -23,6 +23,11 @@
       "name": "Server communication failure",
       "isClosed": false,
       "createdAt": "2017-10-25T10:21:09.081Z"
+    },
+    {
+      "id": 6,
+      "name": "f dsafdasfdas",
+      "isClosed": false
     }
   ],
   "projects": [

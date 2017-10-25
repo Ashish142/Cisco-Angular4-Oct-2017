@@ -13,7 +13,7 @@ import { BugServerService } from './services/BugServer.service';
 export class BugTrackerComponent implements OnInit{
 	bugs : Bug[] = [];
 
-	constructor(private bugServer : BugServerService, private bugStorage : BugStorageService, private http : Http){
+	constructor(private bugServer : BugServerService){
 
 	}
 
@@ -34,14 +34,11 @@ export class BugTrackerComponent implements OnInit{
 	removeClosed(){
 		for(let index = this.bugs.length-1; index >= 0; index--){
 			if (this.bugs[index].isClosed){
-				this.bugStorage.remove(this.bugs[index]);
+				
 				this.bugs.splice(index, 1);
 			}
 		}
-		/*this.bugs = this.bugs.filter(function(bug){
-			return !bug.isClosed;
-		});*/
-		//this.bugs = this.bugs.filter(bug => !bug.isClosed);
+		
 
 	}
 }
